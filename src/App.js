@@ -30,9 +30,9 @@ function App() {
                 <button className="button" onClick={refreshTime}>Refresh Time</button>
                 <button className="button" onClick={createClock}>Create Clock</button>
             </div>
-            {clocks.map(clock => (
+            {clocks.map((clock, index) => (
                 <div key={clock.id} className="clock">
-                    <p className="time">{clock.time.toLocaleTimeString()}</p>
+                    <p className="time" data-testid={"clock-" + index}>{clock.time.toLocaleTimeString()}</p>
                     <button className="button" onClick={() => deleteClock(clock.id)}>Delete Clock</button>
                 </div>
             ))}
